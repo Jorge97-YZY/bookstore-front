@@ -12,7 +12,28 @@
     font-weight: 300;
 }
 
+.add{
+    margin-bottom: 1rem;
+}
+
 .table{
     width: 100%;
-    
+
+}
+.livros{
+    margin-left: .5rem;
+}
+.livros_icones{
+    color: black;
+}
+
+.edit{
+    color: rgb(255,204,0);
+}
+.delete{
+    color: rgb(204,51,0);
+    margin-left: .5rem;
+}
+.mat-header{
+    width: 5rem;
 }

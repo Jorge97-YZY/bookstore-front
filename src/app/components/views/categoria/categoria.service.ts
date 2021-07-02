@@ -19,6 +19,12 @@ export class CategoriaService {
     private _snack: MatSnackBar
   ) { }
 
+  findById(id: string):Observable<Categoria>{
+    const url = `${this.baseUrl}/categorias/${id}`;
+    return this.http.get<Categoria>(url);
+
+  }
+
   findAll():Observable<Categoria[]>{
     const url = `${this.baseUrl}/categorias`;
     return this.http.get<Categoria[]>(url);

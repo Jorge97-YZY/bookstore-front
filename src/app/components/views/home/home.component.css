@@ -1,0 +1,25 @@
+.home{
+    width: 95%;
+    margin: 1rem auto;
+}
+.imagem{
+    width: 95%;
+    height: 70%;
+    margin: 1rem auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+@media(max-width: 450px){
+    .home{
+        width: 70%;
+    }
+}
+
+@media(max-width: 770px){
+    .home{
+        width: 90%;
+    }
+}

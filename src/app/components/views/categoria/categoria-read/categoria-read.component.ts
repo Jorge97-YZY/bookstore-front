@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Categoria } from '../categoria.model';
+import { Categoria } from '../../../../models/categoria.model';
 import { CategoriaService } from '../categoria.service';
 
 @Component({
@@ -30,6 +30,6 @@ export class CategoriaReadComponent implements OnInit {
   }
 
   navegarParaCategoriaCreate(){
-    this.router.navigate(['categorias/create']);
+    this.router.navigate(['/categorias/create']);
   }
 }

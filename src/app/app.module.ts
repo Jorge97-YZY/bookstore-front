@@ -23,9 +23,7 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './components/views/home/home.component';
-import { CategoriaReadComponent } from './components/views/categoria/categoria-read/categoria-read.component';
-import { CategoriaCreateComponent } from './components/views/categoria/categoria-create/categoria-create.component';
-import { CategoriaDeleteComponent } from './components/views/categoria/categoria-delete/categoria-delete.component';
+
 
 
 @NgModule({
@@ -34,10 +32,8 @@ import { CategoriaDeleteComponent } from './components/views/categoria/categoria
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    HomeComponent,
-    CategoriaReadComponent,
-    CategoriaCreateComponent,
-    CategoriaDeleteComponent
+    HomeComponent
+    
   ],
   imports: [
     BrowserModule,

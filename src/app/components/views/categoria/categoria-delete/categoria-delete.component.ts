@@ -1,4 +1,4 @@
-import { Categoria } from './../categoria.model';
+import { Categoria } from '../../../../models/categoria.model';
 import { CategoriaService } from './../categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -44,7 +44,14 @@ export class CategoriaDeleteComponent implements OnInit {
   })
 }
 
-oncancel():void{
+onDelete(): void{
+  this.service.delete(this.categoria.id!).subscribe((resposta)=>{
+    this.router.navigate(['categorias']);
+    this.service.message('Categoria apagada com Sucesso!');
+  });
+}
+
+onCancel():void{
   this.router.navigate(['categorias']);
 }
 

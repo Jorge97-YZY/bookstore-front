@@ -16,7 +16,8 @@ export class LivroReadComponent implements OnInit {
   id_cat: string = '';
   constructor(
     private service: LivroService, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +31,8 @@ export class LivroReadComponent implements OnInit {
       this.livros = resposta;
       console.log(this.livros);
     });
+  }
+  onBack(){
+    this.router.navigate(['/categorias']);
   }
 }

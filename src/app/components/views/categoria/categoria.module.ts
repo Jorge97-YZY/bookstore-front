@@ -17,7 +17,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSnackBarModule} from '@angular/material/snack-bar'
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CategoriaUpdateComponent } from './categoria-update/categoria-update.component'
 
 
 
@@ -25,7 +26,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
   declarations: [
     CategoriaReadComponent,
     CategoriaCreateComponent,
-    CategoriaDeleteComponent
+    CategoriaDeleteComponent,
+    CategoriaUpdateComponent
   ],
   imports: [
     CommonModule,

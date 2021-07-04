@@ -23,6 +23,7 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './components/views/home/home.component';
+import { LivroReadComponent } from './components/views/livro/livro-read/livro-read.component';
 
 
 

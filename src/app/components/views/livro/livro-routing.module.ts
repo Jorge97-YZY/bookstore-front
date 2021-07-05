@@ -1,3 +1,4 @@
+import { LivroDeleteComponent } from './livro-delete/livro-delete.component';
 import { LivroCreateComponent } from './livro-create/livro-create.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,6 +10,9 @@ const routes: Routes = [
   },
   {
     path: 'create', component: LivroCreateComponent
+  },
+  {
+    path: 'delete/:id', component: LivroDeleteComponent
   }
 ];
 

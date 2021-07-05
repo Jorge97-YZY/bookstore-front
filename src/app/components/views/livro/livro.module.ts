@@ -17,12 +17,14 @@ import { LivroRoutingModule } from './livro-routing.module';
 import { LivroReadComponent } from './livro-read/livro-read.component';
 import { LivroCreateComponent } from './livro-create/livro-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LivroDeleteComponent } from './livro-delete/livro-delete.component';
 
 
 @NgModule({
   declarations: [
     LivroReadComponent,
-    LivroCreateComponent
+    LivroCreateComponent,
+    LivroDeleteComponent
   ],
   imports: [
     CommonModule,

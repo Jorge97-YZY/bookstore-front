@@ -15,15 +15,19 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { LivroRoutingModule } from './livro-routing.module';
 import { LivroReadComponent } from './livro-read/livro-read.component';
+import { LivroCreateComponent } from './livro-create/livro-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    LivroReadComponent
+    LivroReadComponent,
+    LivroCreateComponent
   ],
   imports: [
     CommonModule,
     LivroRoutingModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,

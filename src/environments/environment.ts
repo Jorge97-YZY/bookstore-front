@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api-storebook.herokuapp.com/'
+  baseUrl: 'http://localhost:8080/'
   
   // Link da API no Heroku
   // 'https://api-storebook.herokuapp.com/'

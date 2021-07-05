@@ -35,4 +35,8 @@ export class LivroReadComponent implements OnInit {
   onBack(){
     this.router.navigate(['/categorias']);
   }
+
+  navegarParaLivroCreate(){
+    this.router.navigate([`/categorias/${this.id_cat}/livros/create`]);
+  }
 }

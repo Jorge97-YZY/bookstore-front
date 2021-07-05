@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class LivroReadComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['id', 'titulo','livros', 'accoes'];
+  displayedColumns: string[] = ['id', 'titulo', 'nome_autor','livros', 'accoes'];
   livros: Livro[] = [];
   id_cat: string = '';
   constructor(

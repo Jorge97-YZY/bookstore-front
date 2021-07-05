@@ -31,6 +31,12 @@ create(id_cat:string, livro: Livro): Observable<Livro>{
   return this.http.post<Livro>(url, livro);
 }
 
+update(livro: Livro): Observable<Livro>{
+  const url = `${this.baseUrl}/livros/${livro.id}`;
+  return this.http.put<Livro>(url, livro);
+}
+
+
 delete( id: string): Observable<Livro>{
   const url = `${this.baseUrl}/livros/${id}`;
   return this.http.delete<Livro>(url);

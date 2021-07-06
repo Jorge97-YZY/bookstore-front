@@ -1,3 +1,4 @@
+import { SharedService } from './../../../../shared/shared.service';
 import { Categoria } from './../../../../models/categoria.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,7 +22,8 @@ export class CategoriaUpdateComponent implements OnInit {
     private service: CategoriaService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -57,7 +59,7 @@ export class CategoriaUpdateComponent implements OnInit {
     console.log(this.formCategoria.value)
     this.service.update(this.formCategoria.value).subscribe((resposta) => {
       this.router.navigate(['categorias']);
-      this.service.message('Categoria editada com Sucesso!');
+      this.sharedService.message('Categoria editada com Sucesso!');
     }, err => {
       console.log(err)
     });

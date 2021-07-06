@@ -1,3 +1,4 @@
+import { SharedService } from './../../../../shared/shared.service';
 import { Livro } from './../../../../models/livro.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -24,7 +25,8 @@ export class LivroDeleteComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private service: LivroService
+    private service: LivroService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class LivroDeleteComponent implements OnInit {
   onSubmit(){
     this.service.delete(this.livro.id!).subscribe((resposta)=>{
       this.router.navigate([`categorias`]);
-      this.service.message('Livro apagado com Sucesso!');
+      this.sharedService.message('Livro apagado com Sucesso!');
     });
   }
 

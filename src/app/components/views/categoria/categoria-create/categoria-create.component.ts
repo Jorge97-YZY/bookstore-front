@@ -1,3 +1,4 @@
+import { SharedService } from './../../../../shared/shared.service';
 import { Categoria } from '../../../../models/categoria.model';
 import { CategoriaService } from './../categoria.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,8 @@ export class CategoriaCreateComponent implements OnInit {
   constructor(
     private service: CategoriaService,
     private fb: FormBuilder,
-    private router:Router
+    private router:Router,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -34,10 +36,10 @@ createForm() {
 onSubmit(): void{
       this.service.create(this.formCategoria.value).subscribe((resposta)=>{
         this.router.navigate(['categorias']);
-        this.service.message('Categoria criada com Sucesso!');
+        this.sharedService.message('Categoria criada com Sucesso!');
       }, err =>{
         for(let i = 0; i < err.error.errors.length; i++){
-          this.service.message(err.error.errors[i].message);
+          this.sharedService.message(err.error.errors[i].message);
         }
       });
 }

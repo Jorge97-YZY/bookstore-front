@@ -15,8 +15,7 @@ export class CategoriaService {
   baseUrl: string = environment.baseUrl;
 
   constructor(
-    private http: HttpClient,
-    private _snack: MatSnackBar
+    private http: HttpClient
   ) { }
 
   findById(id: string): Observable<Categoria> {
@@ -46,12 +45,4 @@ export class CategoriaService {
     return this.http.delete<Categoria>(url);
   }
 
-
-  message(str: string): void {
-    this._snack.open(`${str}`, 'OK', {
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
-      duration: 3000
-    });
-  }
 }

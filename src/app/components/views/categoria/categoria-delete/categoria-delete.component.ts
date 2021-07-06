@@ -1,3 +1,4 @@
+import { SharedService } from './../../../../shared/shared.service';
 import { Categoria } from '../../../../models/categoria.model';
 import { CategoriaService } from './../categoria.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +22,8 @@ export class CategoriaDeleteComponent implements OnInit {
     private service: CategoriaService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class CategoriaDeleteComponent implements OnInit {
 onDelete(): void{
   this.service.delete(this.categoria.id!).subscribe((resposta)=>{
     this.router.navigate(['categorias']);
-    this.service.message('Categoria apagada com Sucesso!');
+    this.sharedService.message('Categoria apagada com Sucesso!');
   });
 }
 

@@ -1,3 +1,4 @@
+import { SharedService } from './../../../../shared/shared.service';
 import { LivroService } from './../livro.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class LivroCreateComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private service: LivroService
+    private service: LivroService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -37,10 +39,10 @@ export class LivroCreateComponent implements OnInit {
    
     this.service.create(this.id_cat, this.formLivro.value).subscribe((resposta)=>{
       this.router.navigate([`categorias/${this.id_cat}/livros`]);
-      this.service.message('Livro criado com Sucesso!');
+      this.sharedService.message('Livro criado com Sucesso!');
     }, err =>{
       for(let i = 0; i < err.error.errors.length; i++){
-        this.service.message(err.error.errors[i].message);
+        this.sharedService.message(err.error.errors[i].message);
       }
     });
   }

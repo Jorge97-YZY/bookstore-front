@@ -1,3 +1,4 @@
+import { SharedService } from './../../../../shared/shared.service';
 import { Livro } from './../../../../models/livro.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -23,7 +24,8 @@ export class LivroUpdateComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private service: LivroService
+    private service: LivroService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +61,7 @@ export class LivroUpdateComponent implements OnInit {
   onSubmit() {
     this.service.update(this.formLivro.value).subscribe((resposta) => {
       this.router.navigate([`categorias`]);
-      this.service.message('Livro Editado com Sucesso!');
+      this.sharedService.message('Livro Editado com Sucesso!');
     });
   }
 

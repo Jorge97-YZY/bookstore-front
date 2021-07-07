@@ -1,3 +1,4 @@
+import { SharedModule } from './../../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CategoriaUpdateComponent } from './categoria-update/categoria-update.component'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -42,7 +44,9 @@ import { CategoriaUpdateComponent } from './categoria-update/categoria-update.co
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    SharedModule
     
   ]
 })

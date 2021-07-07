@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import { LivroRoutingModule } from './livro-routing.module';
@@ -19,6 +20,7 @@ import { LivroCreateComponent } from './livro-create/livro-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LivroDeleteComponent } from './livro-delete/livro-delete.component';
 import { LivroUpdateComponent } from './livro-update/livro-update.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { LivroUpdateComponent } from './livro-update/livro-update.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    SharedModule
   ]
 })
 export class LivroModule { }

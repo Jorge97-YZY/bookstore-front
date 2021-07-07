@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Categoria } from '../../../models/categoria.model';
 import { environment } from './../../../../environments/environment';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { delay, take, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,9 @@ export class CategoriaService {
 
   findAll(): Observable<Categoria[]> {
     const url = `${this.baseUrl}/categorias`;
-    return this.http.get<Categoria[]>(url);
+    return this.http.get<Categoria[]>(url).pipe(
+      delay(2000)
+    );
   }
 
   create(categoria: Categoria): Observable<Categoria> {

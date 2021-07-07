@@ -13,6 +13,8 @@ export class CategoriaReadComponent implements OnInit {
   categorias: Categoria[] = [];
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'accoes'];
   
+  mostrarTabela = false;
+  showSpinner = true;
   constructor(
     private service: CategoriaService,
     private router: Router
@@ -26,6 +28,8 @@ export class CategoriaReadComponent implements OnInit {
     this.service.findAll().subscribe(resposta =>{
       console.log(resposta)
       this.categorias = resposta;
+      this.showSpinner = false;
+      this.mostrarTabela = true;
     });
   }
 

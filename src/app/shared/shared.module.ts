@@ -11,11 +11,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoadSpinnerComponent } from './load-spinner/load-spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
   declarations: [
-   ],
+   
+    LoadSpinnerComponent
+  ],
   imports: [
     CommonModule,
     MatSnackBarModule,
@@ -28,8 +32,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
     
+  ],
+  exports:[
+    LoadSpinnerComponent
+  ], entryComponents:[
+    LoadSpinnerComponent
   ]
 })
 export class SharedModule { }

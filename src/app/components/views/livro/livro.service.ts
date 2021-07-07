@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Livro } from './../../../models/livro.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { delay, take, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,9 @@ findById(id: string): Observable<Livro>{
 
 findAllByCategoria(id_cat: string): Observable<Livro[]>{
   const url = `${this.baseUrl}/livros?categoria=${id_cat}`
-  return this.http.get<Livro[]>(url);
+  return this.http.get<Livro[]>(url).pipe(
+    delay(2000)
+  );
 }
 
 create(id_cat:string, livro: Livro): Observable<Livro>{

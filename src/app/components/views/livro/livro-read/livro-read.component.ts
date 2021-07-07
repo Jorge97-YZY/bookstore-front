@@ -14,6 +14,9 @@ export class LivroReadComponent implements OnInit {
   displayedColumns: string[] = ['id', 'titulo','livros', 'accoes'];
   livros: Livro[] = [];
   id_cat: string = '';
+
+  mostrarTabela = false;
+  showSpinner = true;
   constructor(
     private service: LivroService, 
     private route: ActivatedRoute,
@@ -30,6 +33,8 @@ export class LivroReadComponent implements OnInit {
     this.service.findAllByCategoria(this.id_cat).subscribe((resposta)=>{
       this.livros = resposta;
       console.log(this.livros);
+      this.showSpinner = false;
+      this.mostrarTabela = true;
     });
   }
   onBack(){

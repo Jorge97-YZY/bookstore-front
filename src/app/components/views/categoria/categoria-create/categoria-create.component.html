@@ -10,11 +10,27 @@
         <mat-form-field class="form">
             <mat-label>Nome</mat-label>
             <input matInput type="text" id="nome" name="nome" placeholder="Ex. Computação" formControlName="nome">
+       
+            <mat-error *ngIf="formCategoria.get('nome')?.hasError('required') && formCategoria.get('nome')?.touched">
+                O campo Nome é obrigatório
+            </mat-error>
+            <mat-error *ngIf="formCategoria.get('nome')?.hasError('minlength') && formCategoria.get('nome')?.touched">
+                Mínimo de 3 caracteres.
+            </mat-error>
+       
         </mat-form-field>
 
         <mat-form-field class="form">
             <mat-label>Descrição</mat-label>
             <textarea matInput type="text" id="descricao" name="descricao" placeholder="Ex. Livros de Computação" formControlName="descricao"></textarea>
+       
+            <mat-error *ngIf="formCategoria.get('descricao')?.hasError('required') && formCategoria.get('descricao')?.touched">
+                O campo Nome é obrigatório
+            </mat-error>
+            <mat-error *ngIf="formCategoria.get('descricao')?.hasError('minlength') && formCategoria.get('descricao')?.touched">
+                Mínimo de 3 caracteres.
+            </mat-error>
+       
         </mat-form-field>
 
         <div class="buttons">

@@ -7,16 +7,16 @@ import { LivroReadComponent } from './livro-read/livro-read.component';
 
 const routes: Routes = [
   {
-    path: '', component: LivroReadComponent
+    path: ':id_cat/livros', component: LivroReadComponent
   },
   {
-    path: 'create', component: LivroCreateComponent
+    path: ':id_cat/livros/create', component: LivroCreateComponent
   },
   {
-    path: 'delete/:id', component: LivroDeleteComponent
+    path: ':id_cat/livros/:id/delete', component: LivroDeleteComponent
   },
   {
-    path: 'update/:id', component: LivroUpdateComponent
+    path: ':id_cat/livros/:id/update', component: LivroUpdateComponent
   }
 ];
 

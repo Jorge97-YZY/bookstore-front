@@ -29,13 +29,16 @@ export class LivroUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
+    console.log(this.id_cat)
+    this.livro.id = this.route.snapshot.paramMap.get('id')!;
     this.findById();
     this.createForm()
+    
   }
 
   findById(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.service.findById(id).subscribe((resposta) => {
+    this.service.findById(this.livro.id!).subscribe((resposta) => {
       this.updateForm(resposta);
     });
   }
@@ -43,11 +46,12 @@ export class LivroUpdateComponent implements OnInit {
   createForm() {
     this.formLivro = this.fb.group({
       id: [''],
-      titulo: ['', Validators.required],
-      nome_autor: ['', Validators.required],
-      texto: ['', Validators.required]
+      titulo: ['', [Validators.required, Validators.minLength(3)]],
+      nome_autor: ['', [Validators.required, Validators.minLength(3)]],
+      texto: ['', [Validators.required, Validators.minLength(10)]]
     })
   }
+
 
   updateForm(livro: Livro) {
     this.formLivro.patchValue({
@@ -60,13 +64,16 @@ export class LivroUpdateComponent implements OnInit {
 
   onSubmit() {
     this.service.update(this.formLivro.value).subscribe((resposta) => {
-      this.router.navigate([`categorias`]);
+      this.router.navigate([`/categorias/${this.id_cat}/livros`]);
       this.sharedService.message('Livro Editado com Sucesso!');
+    }, err =>{
+      this.router.navigate([`/categorias/${this.id_cat}/livros`]);
+      this.sharedService.message('Falha ao Editar Livro! Tente mais tarde...');
     });
   }
 
-  oncancel() {
-    this.router.navigate([`categorias`]);
+  oncancel(): void {
+    this.router.navigate([`/categorias/${this.id_cat}/livros`]);
   }
 
 }

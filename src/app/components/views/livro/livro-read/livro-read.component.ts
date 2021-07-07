@@ -21,7 +21,7 @@ export class LivroReadComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id_cat = this.route.snapshot.paramMap.get('id')!;
+    this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
     this.findAll();
 
   }

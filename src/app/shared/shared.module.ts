@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ValidationFormDirective } from './validationForm.directive';
 // Imports Angular Matirial
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -15,8 +14,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
-  declarations: [	
-      ValidationFormDirective
+  declarations: [
    ],
   imports: [
     CommonModule,

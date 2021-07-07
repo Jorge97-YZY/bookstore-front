@@ -23,7 +23,7 @@ export class LivroCreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id_cat = this.route.snapshot.paramMap.get('id')!;
+    this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
     this.createForm();
   }
 
@@ -41,9 +41,8 @@ export class LivroCreateComponent implements OnInit {
       this.router.navigate([`categorias/${this.id_cat}/livros`]);
       this.sharedService.message('Livro criado com Sucesso!');
     }, err =>{
-      for(let i = 0; i < err.error.errors.length; i++){
-        this.sharedService.message(err.error.errors[i].message);
-      }
+      this.router.navigate([`categorias/${this.id_cat}/livros`]);
+      this.sharedService.message('Erro ao criar novo Livro! Tente mais tarde!');
     });
   }
 

@@ -30,9 +30,9 @@ export class LivroDeleteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.createForm();
+    this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
     this.livro.id = this.route.snapshot.paramMap.get('id')!;
+    this.createForm();
     this.findById();
   }
 
@@ -58,7 +58,7 @@ export class LivroDeleteComponent implements OnInit {
   }
 
   oncancel(){
-    this.router.navigate([`categorias`]);
+    this.router.navigate([`/categorias/${this.id_cat}/livros`]);
   }
 
 }

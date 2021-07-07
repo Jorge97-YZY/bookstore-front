@@ -10,23 +10,47 @@
         <mat-form-field class="form">
             <mat-label>Titulo</mat-label>
             <input matInput type="text" id="titulo" name="titulo"
-                placeholder="Ex. ECMAScript 6 - Entre de Cabeça no Futuro do JS" formControlName="titulo">
+                placeholder="Ex. ECMAScript 6 - Entre de Cabeça no Futuro do JS" 
+                formControlName="titulo" >
+
+                <mat-error *ngIf="formLivro.get('titulo')?.hasError('required') && formLivro.get('titulo')?.touched">
+                    O campo Titulo é obrigatório
+                </mat-error>
+                <mat-error *ngIf="formLivro.get('titulo')?.hasError('minlength') && formLivro.get('titulo')?.touched">
+                    Mínimo de 3 caracteres.
+                </mat-error>
+
         </mat-form-field>
         <mat-form-field class="form">
             <mat-label>Autor</mat-label>
-            <input matInput type="text" id="titulo" name="nome_autor" placeholder="Ex. Diego Martins Pinho "
+            <input matInput type="text" id="nome_autor" name="nome_autor" placeholder="Ex. Diego Martins Pinho "
                 formControlName="nome_autor">
+
+                <mat-error *ngIf="formLivro.get('nome_autor')?.hasError('required') && formLivro.get('nome_autor')?.touched">
+                    O campo Autor é obrigatório
+                </mat-error>
+                <mat-error *ngIf="formLivro.get('nome_autor')?.hasError('minlength') && formLivro.get('nome_autor')?.touched">
+                    Mínimo de 3 caracteres.
+                </mat-error>
+
         </mat-form-field>
 
         <mat-form-field class="form">
             <mat-label>Texto</mat-label>
-            <textarea matInput type="text" id="descricao" name="texto"
+            <textarea matInput type="text" id="texto" name="texto"
                 placeholder="Ex. Primeiramente, gostaria de agradecer muito à minha família que sempre me apoiou, motivou e educou a buscar ser melhor sempre. Também gostaria de agradecer à minha namorada, Bruna Freitas, que me cobrou todos os dias a continuar escrevendo até terminar o livro. Sou muito grato aos meus amigos e mentores profissionais, Fabio Nishihara e Marcelo Suzumura, pela confiança no meu trabalho e por todos os ensinamentos dados, tanto na área técnica quanto na de negócios."
                 formControlName="texto"></textarea>
+
+                <mat-error *ngIf="formLivro.get('texto')?.hasError('required') && formLivro.get('texto')?.touched">
+                    O campo Texto é obrigatório
+                </mat-error>
+                <mat-error *ngIf="formLivro.get('texto')?.hasError('minlength') && formLivro.get('texto')?.touched">
+                    Mínimo de 10 caracteres.
+                </mat-error>
         </mat-form-field>
 
         <div class="buttons">
-            <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="onSubmit()">Guardar</button>
+            <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="onSubmit()" [disabled]="formLivro.invalid">Guardar</button>
             <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="oncancel()">Cancelar</button>
         </div>
 

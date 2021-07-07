@@ -29,9 +29,9 @@ export class LivroCreateComponent implements OnInit {
 
   createForm() {
     this.formLivro = this.fb.group({
-      titulo: ['', Validators.required],
-      nome_autor: ['', Validators.required],
-      texto: ['', Validators.required]
+      titulo: ['', [Validators.required, Validators.minLength(3)]],
+      nome_autor: ['', [Validators.required, Validators.minLength(3)]],
+      texto: ['', [Validators.required, Validators.minLength(10)]]
     })
   }
 

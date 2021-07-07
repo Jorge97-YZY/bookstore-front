@@ -1,13 +1,15 @@
+import { LivroReadComponent } from './livro-read/livro-read.component';
 import { LivroUpdateComponent } from './livro-update/livro-update.component';
 import { LivroDeleteComponent } from './livro-delete/livro-delete.component';
 import { LivroCreateComponent } from './livro-create/livro-create.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LivroReadComponent } from './livro-read/livro-read.component';
+import { LivroReadAllComponent } from './livro-read-all/livro-read.component';
+
 
 const routes: Routes = [
   {
-    path: ':id_cat/livros', component: LivroReadComponent
+    path: ':id_cat/livros', component: LivroReadAllComponent
   },
   {
     path: ':id_cat/livros/create', component: LivroCreateComponent
@@ -17,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: ':id_cat/livros/:id/update', component: LivroUpdateComponent
+  },
+  {
+    path: ':id_cat/livros/:id/read', component: LivroReadComponent
   }
 ];
 

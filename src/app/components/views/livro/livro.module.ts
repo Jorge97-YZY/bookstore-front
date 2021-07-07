@@ -1,3 +1,4 @@
+import { LivroReadComponent } from './livro-read/livro-read.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Imports Angular Matirial
@@ -15,20 +16,21 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import { LivroRoutingModule } from './livro-routing.module';
-import { LivroReadComponent } from './livro-read/livro-read.component';
 import { LivroCreateComponent } from './livro-create/livro-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LivroDeleteComponent } from './livro-delete/livro-delete.component';
 import { LivroUpdateComponent } from './livro-update/livro-update.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LivroReadAllComponent } from './livro-read-all/livro-read.component';
 
 
 @NgModule({
   declarations: [
-    LivroReadComponent,
+    LivroReadAllComponent,
     LivroCreateComponent,
     LivroDeleteComponent,
-    LivroUpdateComponent
+    LivroUpdateComponent,
+    LivroReadComponent
   ],
   imports: [
     CommonModule,

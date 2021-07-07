@@ -1,7 +1,9 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { LivroService } from './../livro.service';
 import { Livro } from './../../../../models/livro.model';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LivroService } from '../livro.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-livro-read',
@@ -10,38 +12,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivroReadComponent implements OnInit {
 
-
-  displayedColumns: string[] = ['id', 'titulo','livros', 'accoes'];
-  livros: Livro[] = [];
+  formLivro!: FormGroup
   id_cat: string = '';
-
-  mostrarTabela = false;
-  showSpinner = true;
+  livro: Livro = {
+    id: '',
+    titulo: '',
+    nome_autor: '',
+    texto: ''
+  }
   constructor(
-    private service: LivroService, 
+    private fb: FormBuilder,
+    private router: Router,
     private route: ActivatedRoute,
-    private router: Router
+    private service: LivroService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
     this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
-    this.findAll();
-
+    console.log(this.id_cat)
+    this.livro.id = this.route.snapshot.paramMap.get('id')!;
+    this.findById();
+    this.createForm()
+    
   }
 
-  findAll(): void{
-    this.service.findAllByCategoria(this.id_cat).subscribe((resposta)=>{
-      this.livros = resposta;
-      console.log(this.livros);
-      this.showSpinner = false;
-      this.mostrarTabela = true;
+  findById(): void {
+    this.service.findById(this.livro.id!).subscribe((resposta) => {
+      this.livro = resposta;
     });
   }
-  onBack(){
-    this.router.navigate(['/categorias']);
+
+  createForm() {
+    this.formLivro = this.fb.group({
+      id: [''],
+      titulo: ['', [Validators.required, Validators.minLength(3)]],
+      nome_autor: ['', [Validators.required, Validators.minLength(3)]],
+      texto: ['', [Validators.required, Validators.minLength(10)]]
+    })
   }
 
-  navegarParaLivroCreate(){
-    this.router.navigate([`/categorias/${this.id_cat}/livros/create`]);
+
+
+
+  oncancel(): void {
+    this.router.navigate([`/categorias/${this.id_cat}/livros`]);
   }
+
 }

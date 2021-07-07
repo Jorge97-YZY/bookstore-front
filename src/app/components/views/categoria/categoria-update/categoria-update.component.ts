@@ -42,8 +42,8 @@ export class CategoriaUpdateComponent implements OnInit {
   createForm() {
     this.formCategoria = this.fb.group({
       id: [''],
-      nome: ['', Validators.required],
-      descricao: ['', Validators.required]
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      descricao: ['', [Validators.required, Validators.minLength(3)]]
     })
   }
   updateForm(categoria: Categoria) {

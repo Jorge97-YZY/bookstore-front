@@ -2,13 +2,20 @@
     width: 95%;
     margin: 1rem auto;
 }
-.imagem{
+.carPrinci{
     width: 95%;
-    height: 70%;
-    margin: 1rem auto; 
+    margin: 1rem auto;
+}
+.cardP{
+    padding-top: 1rem;
     display: flex;
-    align-items: center;
-    justify-content: center
+    flex-direction: row;
+
+}
+.slide{
+    width: 20%;
+    height: 20%;
+    margin-left: 2rem;
 }
 
 
